@@ -55,160 +55,227 @@ Anansi::Database - A manager for database interaction.
 =head1 DESCRIPTION
 
 Manages database interactions allowing the creation, interrogation, modification
-and removal of database structures and table records.  Uses L<Anansi::Component>
-I<(indirectly)>, L<Anansi::ComponentManager>, L<Anansi::DatabaseComponent>
-I<(indirectly)> and L<base>.
+and removal of database structures and table records.
 
 =cut
 
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use base qw(Anansi::ComponentManager);
 
 
-=head1 INHERITED METHODS
-
-=cut
-
-
-=head2 addChannel
-
-Declared in L<Anansi::ComponentManager>.
-
-=cut
-
-
-=head2 addComponent
-
-Declared in L<Anansi::ComponentManager>.
-
-=cut
-
-
-=head2 channel
-
-Declared in L<Anansi::ComponentManager>.
-
-=cut
-
-
-=head2 component
-
-Declared in L<Anansi::ComponentManager>.
-
-=cut
-
-
-=head2 componentIdentification
-
-Declared in L<Anansi::ComponentManager>.
-
-=cut
-
-
-=head2 components
-
-Declared in L<Anansi::ComponentManager>.
-
-=cut
-
-
-=head2 DESTROY
-
-Declared in L<Anansi::Singleton>.
-
-=cut
-
-
-=head2 finalise
-
-Declared in L<Anansi::Class>.  Intended to be overridden by an extending module.
-
-=cut
-
-
-=head2 fixate
-
-Declared in L<Anansi::Singleton>.  Intended to be overridden by an extending
-module.
-
-=cut
-
-
-=head2 implicate
-
-Declared in L<Anansi::Class>.  Intended to be overridden by an extending module.
-
-=cut
-
-
-=head2 import
-
-Declared in L<Anansi::Class>.
-
-=cut
-
-
-=head2 initialise
-
-Declared in L<Anansi::Class>.  Intended to be overridden by an extending module.
-
-=cut
-
-
-=head2 new
-
-Declared in L<Anansi::Singleton>.  Intended to be overridden by an extending
-module.
-
-=cut
-
-
-=head2 old
-
-Declared in L<Anansi::Class>.
-
-=cut
-
-
-=head2 reinitialise
-
-Declared in L<Anansi::Singleton>.  Intended to be overridden by an extending
-module.
-
-=cut
-
-
-=head2 removeChannel
-
-Declared in L<Anansi::ComponentManager>.
-
-=cut
-
-
-=head2 removeComponent
-
-Declared in L<Anansi::ComponentManager>.
-
-=cut
-
-
-=head2 used
-
-Declared in L<Anansi::Class>.
-
-=cut
-
-
-=head2 uses
-
-Declared in L<Anansi::Class>.
-
-=cut
-
-
 =head1 METHODS
+
+=cut
+
+
+=head2 Anansi::Class
+
+See L<Anansi::Class|Anansi::Class> for details.  A parent module of L<Anansi::Singleton|Anansi::Singleton>.
+
+=cut
+
+
+=head3 DESTROY
+
+See L<Anansi::Class::DESTROY|Anansi::Class/"DESTROY"> for details.  Overridden by L<Anansi::Singleton::DESTROY|Anansi::Singleton/"DESTROY">.
+
+=cut
+
+
+=head3 finalise
+
+See L<Anansi::Class::finalise|Anansi::Class/"finalise"> for details.  A virtual method.
+
+=cut
+
+
+=head3 implicate
+
+See L<Anansi::Class::implicate|Anansi::Class/"implicate"> for details.  A virtual method.
+
+=cut
+
+
+=head3 import
+
+See L<Anansi::Class::import|Anansi::Class/"import"> for details.
+
+=cut
+
+
+=head3 initialise
+
+See L<Anansi::Class::initialise|Anansi::Class/"initialise"> for details.  Overridden by L<Anansi::ComponentManager::initialise|Anansi::ComponentManager/"initialise">.  A virtual method.
+
+=cut
+
+
+=head3 new
+
+See L<Anansi::Class::new|Anansi::Class/"new"> for details.  Overridden by L<Anansi::Singleton::new|Anansi::Singleton/"new">.
+
+=cut
+
+
+=head3 old
+
+See L<Anansi::Class::old|Anansi::Class/"old"> for details.
+
+=cut
+
+
+=head3 used
+
+See L<Anansi::Class::used|Anansi::Class/"used"> for details.
+
+=cut
+
+
+=head3 uses
+
+See L<Anansi::Class::uses|Anansi::Class/"uses"> for details.
+
+=cut
+
+
+=head3 using
+
+See L<Anansi::Class::using|Anansi::Class/"using"> for details.
+
+=cut
+
+
+=head2 Anansi::ComponentManager
+
+See L<Anansi::ComponentManager|Anansi::ComponentManager> for details.  A parent module of L<Anansi::Database|Anansi::Database>.
+
+=cut
+
+
+=head3 Anansi::Singleton
+
+See L<Anansi::Singleton|Anansi::Singleton> for details.  A parent module of L<Anansi::ComponentManager|Anansi::ComponentManager>.
+
+=cut
+
+
+=head3 addChannel
+
+See L<Anansi::ComponentManager::addChannel|Anansi::ComponentManager/"addChannel"> for details.
+
+=cut
+
+
+=head3 addComponent
+
+See L<Anansi::ComponentManager::addComponent|Anansi::ComponentManager/"addComponent"> for details.
+
+=cut
+
+
+=head3 channel
+
+See L<Anansi::ComponentManager::channel|Anansi::ComponentManager/"channel"> for details.
+
+=cut
+
+
+=head3 component
+
+See L<Anansi::ComponentManager::component|Anansi::ComponentManager/"component"> for details.
+
+=cut
+
+
+=head3 componentIdentification
+
+See L<Anansi::ComponentManager::componentIdentification|Anansi::ComponentManager/"componentIdentification"> for details.
+
+=cut
+
+
+=head3 components
+
+See L<Anansi::ComponentManager::components|Anansi::ComponentManager/"components"> for details.
+
+=cut
+
+
+=head3 initialise
+
+See L<Anansi::ComponentManager::initialise|Anansi::ComponentManager/"initialise"> for details.  Overrides L<Anansi::Class::initialise|Anansi::Class/"initialise">.  A virtual method.
+
+=cut
+
+
+=head3 priorities
+
+See L<Anansi::ComponentManager::priorities|Anansi::ComponentManager/"priorities"> for details.
+
+=cut
+
+
+=head3 reinitialise
+
+See L<Anansi::ComponentManager::reinitialise|Anansi::ComponentManager/"reinitialise"> for details.  Overrides L<Anansi::Singleton::reinitialise|Anansi::Singleton/"reinitialise">.  A virtual method.
+
+=cut
+
+
+=head3 removeChannel
+
+See L<Anansi::ComponentManager::removeChannel|Anansi::ComponentManager/"removeChannel"> for details.
+
+=cut
+
+
+=head3 removeComponent
+
+See L<Anansi::ComponentManager::removeComponent|Anansi::ComponentManager/"removeComponent"> for details.
+
+=cut
+
+
+=head2 Anansi::Singleton
+
+See L<Anansi::Singleton|Anansi::Singleton> for details.  A parent module of L<Anansi::ComponentManager|Anansi::ComponentManager>.
+
+=cut
+
+
+=head3 Anansi::Class
+
+See L<Anansi::Class|Anansi::Class> for details.  A parent module of L<Anansi::Singleton|Anansi::Singleton>.
+
+=cut
+
+
+=head3 DESTROY
+
+See L<Anansi::Singleton::DESTROY|Anansi::Singleton/"DESTROY"> for details.  Overrides L<Anansi::Class::DESTROY|Anansi::Class/"DESTROY">.
+
+=cut
+
+
+=head3 fixate
+
+See L<Anansi::Singleton::fixate|Anansi::Singleton/"fixate"> for details.  A virtual method.
+
+=cut
+
+
+=head3 new
+
+See L<Anansi::Singleton::new|Anansi::Singleton/"new"> for details.  Overrides L<Anansi::Class::new|Anansi::Class/"new">.
+
+=cut
+
+
+=head3 reinitialise
+
+See L<Anansi::Singleton::reinitialise|Anansi::Singleton/"reinitialise"> for details.  Overridden by L<Anansi::ComponentManager::reinitialise|Anansi::ComponentManager/"reinitialise">.  A virtual method.
 
 =cut
 
@@ -225,13 +292,12 @@ Declared in L<Anansi::Class>.
     );
     if(!defined($connection));
 
+    my $handle = DBI->connect('DBI:mysql:someDatabase', 'someUsername', 'somePassword');
     my $component = Anansi::Database->addComponent();
     my $connection = Anansi::Database->channel(
         'CONNECT',
         $component,
-        DATABASE => 'someDatabase',
-        PASSWORD => 'somePassword',
-        USERNAME => 'someUsername',
+        HANDLE => $handle,
     );
     if(!defined($connection));
 
